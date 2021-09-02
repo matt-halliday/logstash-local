@@ -1,0 +1,11 @@
+version: "3"
+services:
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.1.1
+    ports:
+      - '9600:9600'
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+      - ./input.txt:/tmp/input.txt:ro
+      - ./output.json:/tmp/output.json:rw
+    command: logstash -f /usr/share/logstash/pipeline/ --config.reload.automatic
