@@ -2,7 +2,6 @@ NO_COLOR=$(shell tput sgr0)
 GREEN=$(shell tput bold)$(shell tput setaf 2)
 
 DC = docker-compose
-DCE = ${DC} exec
 
 default: start
 
